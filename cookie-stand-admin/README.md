@@ -25,6 +25,7 @@ Your job is to create a `Cookie Stand Admin` app using [Next.js](https://nextjs.
 
 [x] Style app using TailwindCSS utility classes.
 
+
 ## Implementation Notes
 
 - `npx create-next-app –example with-tailwindcss cookie-stand-admin`
