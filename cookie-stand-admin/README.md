@@ -48,6 +48,7 @@ Use the folder created by `create-next-app` as the root of your project’s git 
 
 Refer to [Lab Submission Instructions](https://codefellows.github.io/code-401-python-guide/reference/submission-instructions/labs/) for detailed instructions.
 
+
 ## Stretch Goals
 
 - Refactor to move components to own functions.
