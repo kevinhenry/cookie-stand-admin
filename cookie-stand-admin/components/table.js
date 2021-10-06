@@ -19,7 +19,7 @@ export default function ReportTable(props) {
             <tbody>
                 {props.data.map(item => {
                     return (
-                        <tr className="odd:bg-green-400 even:bg-green-300 border border-gray-700">
+                        <tr className="odd: bg-green-400 even:bg-green-300 border border-gray-700">
                             <td className="border border-gray-700 text-center capitalize p-1">{item.location}</td>
                             {reports.map(item => {
                                 return (<td className="text-center border border-gray-700">{item}</td>)
