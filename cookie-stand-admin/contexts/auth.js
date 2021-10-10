@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 import jwt from 'jsonwebtoken';
-import axios from 'axios'
+import axios from 'axios';
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 const tokenUrl = baseUrl + '/api/token/';
 
@@ -13,7 +13,6 @@ export function useAuth() {
 }
 
 export function AuthProvider(props) {
-
     const [state, setState] = useState({
         tokens: null,
         user: null,
@@ -22,8 +21,10 @@ export function AuthProvider(props) {
     });
 
     async function login(username, password) {
-
-        const response = await axios.post(tokenUrl, { username, password });
+        const response = await axios.post(tokenUrl, {
+            username,
+            password,
+        });
 
         const decodedAccess = jwt.decode(response.data.access);
 
@@ -32,11 +33,10 @@ export function AuthProvider(props) {
             user: {
                 username: decodedAccess.username,
                 email: decodedAccess.email,
-                id: decodedAccess.user_id
+                id: decodedAccess.user_id,
             },
         }
-
-        setState(prevState => ({ ...prevState, ...newState }));
+        setState((prevState) => ({ ...prevState, ...newState }));
     }
 
     function logout() {
@@ -44,12 +44,10 @@ export function AuthProvider(props) {
             tokens: null,
             user: null,
         }
-        setState(prevState => ({ ...prevState, ...newState }));
+        setState((prevState) => ({ ...prevState, ...newState }));
     }
 
     return (
-        <AuthContext.Provider value={state}>
-            {props.children}
-        </AuthContext.Provider>
+        <AuthContext.Provider value={state}>{props.children}</AuthContext.Provider>
     );
 }
